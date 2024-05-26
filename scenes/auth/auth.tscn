@@ -1,0 +1,210 @@
+[gd_scene load_steps=10 format=3 uid="uid://dpmf438vmtm03"]
+
+[ext_resource type="Script" path="res://scenes/auth/auth.gd" id="1_schbc"]
+[ext_resource type="Texture2D" uid="uid://d2bri6uf7hwul" path="res://textures/background.png" id="2_8e1b2"]
+[ext_resource type="FontFile" uid="uid://dq8fmfhqv05y3" path="res://fonts/OpenSans-SemiBold.ttf" id="3_ijfdk"]
+[ext_resource type="FontFile" uid="uid://csw6vm62h8413" path="res://fonts/OpenSans-Bold.ttf" id="3_rh62t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fv8aa"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_fy7mi"]
+font_size = 24
+
+[sub_resource type="Animation" id="Animation_2rrcv"]
+resource_name = "auth"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Auth"]
+}
+
+[sub_resource type="Animation" id="Animation_qpl5f"]
+resource_name = "loading"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1998, 0.3996, 0.5994),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["Loading", "Loading.", "Loading..", "Loading..."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_51r1u"]
+_data = {
+"auth": SubResource("Animation_2rrcv"),
+"loading": SubResource("Animation_qpl5f")
+}
+
+[node name="Auth" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_schbc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.0588235)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8e1b2")
+stretch_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.0352941)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_rh62t")
+text = "C
+A
+R
+D
+V
+I
+V
+A
+L"
+label_settings = SubResource("LabelSettings_fv8aa")
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.0352941)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_rh62t")
+text = "C
+A
+R
+D
+V
+I
+V
+A
+L
+"
+label_settings = SubResource("LabelSettings_fv8aa")
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Dialogue" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_rh62t")
+text = "Hello again!"
+label_settings = SubResource("LabelSettings_fy7mi")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="EmailL" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Email"
+
+[node name="Email" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Email"
+
+[node name="NicknameL" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Nickname"
+
+[node name="Nickname" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+placeholder_text = "Nickname"
+
+[node name="PasswordL" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Password"
+
+[node name="Password" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Password"
+secret = true
+secret_character = "*"
+
+[node name="Auth" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_ijfdk")
+text = "Loading"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/Auth"]
+libraries = {
+"": SubResource("AnimationLibrary_51r1u")
+}
+
+[node name="Choice" type="Button" parent="MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0.6)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_ijfdk")
+text = "It's my first time here..."
+flat = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Auth" to="." method="_on_auth_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Choice" to="." method="_on_choice_button_down"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

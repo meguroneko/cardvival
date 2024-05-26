@@ -1,0 +1,45 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Cardvival"
+run/main_scene="res://scenes/auth/auth.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Server="*res://server.gd"
+SessionData="*res://session_data.gd"
+Popups="*res://popups/show.gd"
+
+[display]
+
+window/size/viewport_width=414
+window/size/viewport_height=744
+
+[editor]
+
+run/main_run_args="--rendering-driver opengl3_angle"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_card_layout/plugin.cfg")
+
+[gui]
+
+theme/custom="res://themes/main.tres"
+theme/custom_font="res://fonts/OpenSans-Medium.ttf"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.187176, 0.187176, 0.187176, 1)

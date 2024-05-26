@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhnvivwnf5x1d"]
+
+[ext_resource type="Script" path="res://gui/workspaces/workspace.gd" id="1_gyvbj"]
+[ext_resource type="Texture2D" uid="uid://c8jmdedjtkdjl" path="res://gui/quick_info/avatar.png" id="2_jydjx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qn6rf"]
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.151276, 0.151276, 0.151276, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_1xj4n"]
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qn6rf")
+script = ExtResource("1_gyvbj")
+metadata/data = {}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_jydjx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Name" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "MeguroNeko"
+
+[node name="Info" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ID" type="Label" parent="HBoxContainer/VBoxContainer/Info"]
+layout_mode = 2
+text = "1,000,000"
+label_settings = SubResource("LabelSettings_1xj4n")

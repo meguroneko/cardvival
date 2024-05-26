@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://c66p5y0mooak8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uy6yb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_haf43"]
+font_size = 48
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.419608)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -252.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_uy6yb")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Follow my Twitter"
+label_settings = SubResource("LabelSettings_haf43")
+horizontal_alignment = 1
+vertical_alignment = 1

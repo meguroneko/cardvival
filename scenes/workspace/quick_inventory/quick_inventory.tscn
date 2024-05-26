@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://b172b2vgt5p51"]
+
+[ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="1_bru26"]
+[ext_resource type="Texture2D" uid="uid://w021gaihn5pd" path="res://cards/textures/resources/cobblestone.png" id="2_mbu48"]
+
+[node name="GCardHandLayout" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bru26")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -31.2869
+offset_top = 2.46233
+offset_right = 24.7131
+offset_bottom = 82.4623
+rotation = -0.15708
+texture = ExtResource("2_mbu48")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 31.2869
+offset_top = 2.46233
+offset_right = 81.2869
+offset_bottom = 25.4623
+rotation = 0.15708
+text = "пидор"

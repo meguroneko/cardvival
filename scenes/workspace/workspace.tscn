@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfpy6cpxxwmoj"]
+
+[ext_resource type="PackedScene" uid="uid://bexub7eku803r" path="res://gui/quick_info/quick_info.tscn" id="1_hh8wu"]
+[ext_resource type="Texture2D" uid="uid://d2bri6uf7hwul" path="res://textures/background.png" id="1_u7nid"]
+[ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="1_urvte"]
+[ext_resource type="Texture2D" uid="uid://dii2ih0ig71js" path="res://gui/workspaces/textures/forest/background.jpg" id="2_dca5f"]
+[ext_resource type="Texture2D" uid="uid://w021gaihn5pd" path="res://cards/textures/resources/cobblestone.png" id="2_vwtno"]
+[ext_resource type="PackedScene" uid="uid://dx5j8o6qs37hq" path="res://scenes/workspace/location_object/location_object.tscn" id="2_wx2f8"]
+[ext_resource type="Texture2D" uid="uid://ba0tm4djmg50v" path="res://cards/textures/resources/log.png" id="3_p68bd"]
+
+[node name="Workspace" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.0588235)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_u7nid")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.0588235)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dca5f")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+alignment = 1
+
+[node name="TextureRect" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_wx2f8")]
+layout_mode = 2
+
+[node name="TextureRect2" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_wx2f8")]
+layout_mode = 2
+
+[node name="TextureRect3" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_wx2f8")]
+layout_mode = 2
+
+[node name="TextureRect4" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_wx2f8")]
+layout_mode = 2
+
+[node name="TextureRect5" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_wx2f8")]
+layout_mode = 2
+
+[node name="TextureRect6" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_wx2f8")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_hh8wu")]
+layout_mode = 2
+
+[node name="GCardHandLayout" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -64.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_urvte")
+hover_padding = 5.0
+hovered_scale = Vector2(1, 1)
+enable_dragging = true
+dragging_scale = Vector2(2, 2)
+animation_trans = 0
+
+[node name="TextureRect" type="TextureRect" parent="GCardHandLayout"]
+layout_mode = 0
+offset_left = -31.2869
+offset_top = 2.46233
+offset_right = 24.7131
+offset_bottom = 82.4623
+rotation = -0.15708
+texture = ExtResource("2_vwtno")
+
+[node name="TextureRect2" type="TextureRect" parent="GCardHandLayout"]
+layout_mode = 0
+offset_left = 31.2869
+offset_top = 2.46233
+offset_right = 87.2869
+offset_bottom = 82.4623
+rotation = 0.15708
+texture = ExtResource("3_p68bd")
