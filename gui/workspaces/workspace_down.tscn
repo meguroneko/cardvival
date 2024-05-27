@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bhnvivwnf5x1d"]
 
 [ext_resource type="Script" path="res://gui/workspaces/workspace.gd" id="1_gyvbj"]
-[ext_resource type="Texture2D" uid="uid://c8jmdedjtkdjl" path="res://gui/quick_info/avatar.png" id="2_jydjx"]
+[ext_resource type="Texture2D" uid="uid://b74fctfgsh0vh" path="res://gui/workspaces/textures/forest/icon.png" id="2_yddal"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qn6rf"]
 content_margin_left = 6.0
@@ -30,7 +30,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_jydjx")
+texture = ExtResource("2_yddal")
 expand_mode = 3
 stretch_mode = 5
 
@@ -40,12 +40,12 @@ theme_override_constants/separation = 0
 
 [node name="Name" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "MeguroNeko"
+text = "Forest"
 
 [node name="Info" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="ID" type="Label" parent="HBoxContainer/VBoxContainer/Info"]
 layout_mode = 2
-text = "1,000,000"
+text = "ID: 1"
 label_settings = SubResource("LabelSettings_1xj4n")
