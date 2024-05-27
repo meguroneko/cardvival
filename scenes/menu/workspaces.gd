@@ -5,7 +5,7 @@ extends VBoxContainer
 func _ready() -> void:
 	if SessionData.locations:
 		var i = 0
-		while i <= len(SessionData.locations) - 1:
+		while i < len(SessionData.locations):
 			var workspace_portal = null
 			if i == 0:
 				workspace_portal = load("res://gui/workspaces/workspace_up.tscn").instantiate()

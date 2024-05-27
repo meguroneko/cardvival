@@ -1,16 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfpy6cpxxwmoj"]
+[gd_scene load_steps=10 format=3 uid="uid://cfpy6cpxxwmoj"]
 
 [ext_resource type="PackedScene" uid="uid://bexub7eku803r" path="res://gui/quick_info/quick_info.tscn" id="1_hh8wu"]
 [ext_resource type="Texture2D" uid="uid://d2bri6uf7hwul" path="res://textures/background.png" id="1_u7nid"]
 [ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="1_urvte"]
 [ext_resource type="Texture2D" uid="uid://dii2ih0ig71js" path="res://gui/workspaces/textures/forest/background.jpg" id="2_dca5f"]
-[ext_resource type="Texture2D" uid="uid://w021gaihn5pd" path="res://cards/textures/resources/cobblestone.png" id="2_vwtno"]
 [ext_resource type="PackedScene" uid="uid://dx5j8o6qs37hq" path="res://scenes/workspace/location_object/location_object.tscn" id="2_wx2f8"]
-[ext_resource type="Texture2D" uid="uid://ba0tm4djmg50v" path="res://cards/textures/resources/log.png" id="3_p68bd"]
 [ext_resource type="PackedScene" uid="uid://by8eylg7av77p" path="res://gui/workspaces/workspace_up.tscn" id="5_nic2m"]
-[ext_resource type="StyleBox" uid="uid://co8x80ehkfv51" path="res://themes/new_style_box_flat_back.tres" id="5_yj3t6"]
+[ext_resource type="Script" path="res://scenes/workspace/quick_inventory.gd" id="6_w4ohi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydgfa"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.151276, 0.151276, 0.151276, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uk7pi"]
 content_margin_left = 6.0
 content_margin_top = 6.0
 content_margin_right = 6.0
@@ -33,6 +46,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.194349, 0.194349, 0.194349, 1)
+
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.0588235)
 layout_mode = 1
@@ -45,7 +67,7 @@ texture = ExtResource("1_u7nid")
 stretch_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.0588235)
+modulate = Color(1, 1, 1, 0.141)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,51 +114,11 @@ metadata/id = 4
 layout_mode = 2
 metadata/id = 5
 
-[node name="GCardHandLayout" type="Control" parent="."]
-custom_minimum_size = Vector2(0, 96)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -96.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-script = ExtResource("1_urvte")
-hover_padding = 5.0
-hovered_scale = Vector2(1, 1)
-enable_dragging = true
-dragging_scale = Vector2(2, 2)
-animation_trans = 0
-
-[node name="TextureRect" type="TextureRect" parent="GCardHandLayout"]
-layout_mode = 0
-offset_left = -31.2869
-offset_top = 2.46233
-offset_right = 24.7131
-offset_bottom = 82.4623
-rotation = -0.15708
-texture = ExtResource("2_vwtno")
-
-[node name="TextureRect2" type="TextureRect" parent="GCardHandLayout"]
-layout_mode = 0
-offset_left = 31.2869
-offset_top = 2.46233
-offset_right = 87.2869
-offset_bottom = 82.4623
-rotation = 0.15708
-texture = ExtResource("3_p68bd")
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 167.0
+offset_bottom = 136.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
@@ -151,19 +133,32 @@ theme_override_constants/separation = 4
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ydgfa")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="PanelContainer3" parent="MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("5_nic2m")]
+[node name="PanelContainer3" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_nic2m")]
 layout_mode = 2
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uk7pi")
 
-[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("5_yj3t6")
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -96.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("6_w4ohi")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/PanelContainer2"]
+[node name="GCardHandLayout" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(56, 96)
 layout_mode = 2
-text = "Back"
-horizontal_alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_urvte")
+radius = 355.0
+hovered_index = 1
+hover_padding = 5.0
+hovered_scale = Vector2(1, 1)
+enable_dragging = true
+dragging_scale = Vector2(2, 2)
+animation_trans = 0
