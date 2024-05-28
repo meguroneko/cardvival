@@ -7,5 +7,5 @@ Card online game where you should survive with other players. **NOW IT'S OPEN SO
 
 
 ### Socials
-- Telegram: https://t.me/meguroneko
-- Mastodon: `@meguroneko@mastodon.gamedev.place`
+- Telegram: [@meguroneko](https://meguroneko.t.me)
+- Mastodon: [@meguroneko@mastodon.gamedev.place](https://mastodon.gamedev.place/@meguroneko)
