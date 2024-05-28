@@ -18,6 +18,7 @@ corner_radius_top_right = 4
 [sub_resource type="LabelSettings" id="LabelSettings_o4vjm"]
 
 [node name="PanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(23, 23)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
@@ -29,7 +30,7 @@ metadata/data = {}
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(46, 46)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 texture = ExtResource("2_84u78")
 expand_mode = 3
@@ -51,9 +52,11 @@ text = "#13"
 label_settings = SubResource("LabelSettings_o4vjm")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(23, 23)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
+visible = false
 layout_mode = 2
 text = "Resources:"
 

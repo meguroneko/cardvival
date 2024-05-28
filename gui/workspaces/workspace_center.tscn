@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0c1cff4b001y"]
+[gd_scene load_steps=6 format=3 uid="uid://c0c1cff4b001y"]
 
 [ext_resource type="Script" path="res://gui/workspaces/workspace.gd" id="1_6xsuj"]
 [ext_resource type="Texture2D" uid="uid://b74fctfgsh0vh" path="res://gui/workspaces/textures/forest/icon.png" id="2_v3iti"]
+[ext_resource type="Texture2D" uid="uid://w021gaihn5pd" path="res://cards/textures/resources/cobblestone.png" id="3_sxvrf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qn6rf"]
 content_margin_left = 6.0
@@ -26,7 +27,7 @@ metadata/data = {}
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(46, 46)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 texture = ExtResource("2_v3iti")
 expand_mode = 3
@@ -48,14 +49,22 @@ text = "#13"
 label_settings = SubResource("LabelSettings_1xj4n")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(23, 23)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
+visible = false
 layout_mode = 2
 text = "Resources:"
 
 [node name="Resources" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/HBoxContainer2/Resources"]
+layout_mode = 2
+texture = ExtResource("3_sxvrf")
+expand_mode = 3
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
