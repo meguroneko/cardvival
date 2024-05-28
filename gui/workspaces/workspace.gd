@@ -12,9 +12,20 @@ func _update():
 		data = SessionData.current_location
 		set_meta("data", data)
 	if data:
-		$HBoxContainer/VBoxContainer/Name.text = data["name"]
-		$HBoxContainer/VBoxContainer/Info/ID.text = "ID: " + str(data["id"])
+		$HBoxContainer/VBoxContainer/HBoxContainer/Name.text = data["name"]
+		$HBoxContainer/VBoxContainer/HBoxContainer/ID.text = "#" + str(data["id"])
 		$HBoxContainer/TextureRect.texture = load("res://gui/workspaces/textures/%s/icon.png" % data["location"])
+		if data["location"] != "home":
+			$HBoxContainer/VBoxContainer/HBoxContainer2.visible = true
+			for child in $HBoxContainer/VBoxContainer/HBoxContainer2/Resources.get_children():
+				child.queue_free()
+			for item in JSON.parse_string(data["location_objects"]):
+				var texrect = TextureRect.new()
+				texrect.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
+				texrect.texture = load("res://cards/textures/location_objects/%s.png" % item["texture"])
+				$HBoxContainer/VBoxContainer/HBoxContainer2/Resources.add_child(texrect)
+		else:
+			$HBoxContainer/VBoxContainer/HBoxContainer2.visible = false
 
 
 func _on_button_button_down() -> void:
