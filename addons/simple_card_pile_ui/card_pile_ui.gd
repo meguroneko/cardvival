@@ -24,8 +24,8 @@ enum PilesCardLayouts {
 	down
 }
 
-@export_file("*.json") var json_card_database_path : String
-@export_file("*.json") var json_card_collection_path : String
+@export var card_db : Array
+@export var card_collection_db : Array
 @export var extended_card_ui : PackedScene
 
 @export_group("Pile Positions")
@@ -192,8 +192,8 @@ func _get_dropzones(node: Node, className : String, result : Array) -> void:
 	
 
 func load_json_path():
-	card_database = _load_json_cards_from_path(json_card_database_path)
-	card_collection = _load_json_cards_from_path(json_card_collection_path)
+	card_database = card_db
+	card_collection = card_collection_db
 	
 func _load_json_cards_from_path(path : String):
 	var found = []

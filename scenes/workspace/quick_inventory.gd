@@ -1,11 +1,14 @@
-extends VBoxContainer
+extends HBoxContainer
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_update()
+
+func _update() -> void:
 	var inventory = SessionData.me["inventory"]
+	var i = 0
 	for item in inventory:
-		var card = TextureRect.new()
-		card.texture = load("res://cards/textures/%ss/%s.png" % [item["type"], item["texture"]])
-		$GCardHandLayout.add_child(card)
-	$GCardHandLayout.hovered_index = ($GCardHandLayout.get_child_count() -1) /2
+		if item["type"] == "tool":
+			var card = load("res://scenes/workspace/quick_inventory/item.tscn").instantiate() as TextureRect
+			card.set_meta("data", item)
+			$GCardHandLayout.add_child(card)

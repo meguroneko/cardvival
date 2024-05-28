@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfpy6cpxxwmoj"]
+[gd_scene load_steps=9 format=3 uid="uid://cfpy6cpxxwmoj"]
 
 [ext_resource type="PackedScene" uid="uid://bexub7eku803r" path="res://gui/quick_info/quick_info.tscn" id="1_hh8wu"]
 [ext_resource type="Texture2D" uid="uid://d2bri6uf7hwul" path="res://textures/background.png" id="1_u7nid"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dx5j8o6qs37hq" path="res://scenes/workspace/location_object/location_object.tscn" id="2_wx2f8"]
 [ext_resource type="PackedScene" uid="uid://by8eylg7av77p" path="res://gui/workspaces/workspace_up.tscn" id="5_nic2m"]
 [ext_resource type="Script" path="res://scenes/workspace/quick_inventory.gd" id="6_w4ohi"]
-[ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="7_fuwgy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydgfa"]
 content_margin_left = 6.0
@@ -148,12 +147,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("6_w4ohi")
-
-[node name="GCardHandLayout" type="Control" parent="Inventory"]
-custom_minimum_size = Vector2(56, 100)
-layout_mode = 2
-script = ExtResource("7_fuwgy")
-radius = 350.0
-hover_padding = 10.0
-hovered_scale = Vector2(1, 1)
-dragging_scale = Vector2(2, 2)

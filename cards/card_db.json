@@ -1,0 +1,6 @@
+[
+	{"nice_name": "Axe", "texture_path": "res://cards/textures/tools/axe.png", "type": "tool", "id": 1, "stats": {"str": 3}, "interact_w": [2], "qty": -1},
+	{"nice_name": "Pickaxe", "texture_path": "res://cards/textures/tools/pickaxe.png", "type": "tool", "id": 4, "stats": {"str": 5}, "interact_w": [5], "qty": -1},
+	{"nice_name": "Log", "texture_path": "res://cards/textures/resources/log.png", "type": "resource", "id": 3, "qty": 1},
+	{"nice_name": "Cobblestone", "texture_path": "res://cards/textures/resources/cobblestone.png", "type": "resource", "id": 6, "qty": 1}
+]
