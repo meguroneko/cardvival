@@ -90,7 +90,8 @@ func _process(delta):
 	var old_hovered_index = hovered_index
 	if _dragging_card:
 		assert(enable_dragging)
-		_dragging_card.global_position = _get_global_mouse_position_for_interaction() - _dragging_mouse_position
+		if !_dragging_card.location_object:
+			_dragging_card.global_position = _get_global_mouse_position_for_interaction() - _dragging_mouse_position
 	elif _mouse_in:
 		assert(enable_hover)
 		var mouse_position = _get_global_mouse_position_for_interaction()
@@ -176,6 +177,7 @@ func _setup_cards():
 		card.mouse_entered.connect(_on_child_mouse_entered)
 		card.mouse_exited.connect(_on_child_mouse_exited)
 		card.gui_input.connect(_on_child_gui_input.bind(card))
+		card.mined.connect(_mined)
 
 func _find_card_index_with_point(global_point:Vector2) -> int:
 	var intercepting_card:Control
@@ -270,18 +272,29 @@ func _on_child_gui_input(event:InputEvent, card:Control):
 		else:
 			_dragging_index = get_children().find(card)
 		if mouse_button_event.pressed && mouse_button_event.button_index == MOUSE_BUTTON_LEFT:
-			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-			_dragging_card = card
-			_dragging_mouse_position = card.get_local_mouse_position()
-			_dragging_card.z_index = 1
-			hovered_index = -1 #Set hover index without trigger relayout
-			card_dragging_started.emit(_dragging_card, _dragging_index)
-			_reset_positions_if_in_tree()
+			if !card.location_object:
+				Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+				_dragging_card = card
+				_dragging_mouse_position = card.get_local_mouse_position()
+				_dragging_card.z_index = 0
+				hovered_index = -1 #Set hover index without trigger relayout
+				card_dragging_started.emit(_dragging_card, _dragging_index)
+				_reset_positions_if_in_tree()
 		elif !mouse_button_event.pressed && mouse_button_event.button_index == MOUSE_BUTTON_LEFT:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			assert(_dragging_card == card)
-			_dragging_card = null
-			card.z_index = 0
-			card_dragging_finished.emit(card, _dragging_index)
-			_dragging_index = -100
-			_reset_positions_if_in_tree()
+			if !card.location_object:
+				assert(_dragging_card == card)
+				_dragging_card = null
+				card.z_index = 0
+				card_dragging_finished.emit(card, _dragging_index)
+				_dragging_index = -100
+				_reset_positions_if_in_tree()
+
+func _mined(card) -> void:
+	_dragging_mouse_position = card.global_position
+	assert(_dragging_card == card)
+	_dragging_card = null
+	card.z_index = 0
+	card_dragging_finished.emit(card, _dragging_index)
+	_dragging_index = -100
+	_reset_positions_if_in_tree()

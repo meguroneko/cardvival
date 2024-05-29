@@ -3,6 +3,7 @@ extends PanelContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SessionData.workspace_updated.connect(_update)
 	visibility_changed.connect(_update)
 	_update()
 

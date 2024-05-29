@@ -156,4 +156,5 @@ script = ExtResource("7_fuwgy")
 radius = 350.0
 hover_padding = 10.0
 hovered_scale = Vector2(1, 1)
+enable_dragging = true
 dragging_scale = Vector2(2, 2)
