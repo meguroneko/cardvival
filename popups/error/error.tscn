@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bx56yxbfhhljb"]
 
 [ext_resource type="Script" path="res://popups/error/error.gd" id="1_rueip"]
-[ext_resource type="FontFile" uid="uid://csw6vm62h8413" path="res://fonts/OpenSans-Bold.ttf" id="1_tpo7l"]
+[ext_resource type="FontFile" path="res://fonts/OpenSans-Bold.ttf" id="1_tpo7l"]
 
 [sub_resource type="Animation" id="Animation_pl2ec"]
 resource_name = "show"

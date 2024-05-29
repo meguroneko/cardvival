@@ -32,12 +32,12 @@ run/main_run_args="--rendering-driver opengl3_angle"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_card_layout/plugin.cfg", "res://addons/radial_progress/plugin.cfg", "res://addons/simple_card_pile_ui/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_card_layout/plugin.cfg", "res://addons/radial_progress/plugin.cfg")
 
 [gui]
 
 theme/custom="res://themes/main.tres"
-theme/custom_font="res://fonts/OpenSans-Medium.ttf"
+theme/custom_font="res://fonts/Geologica_Auto-Regular.ttf"
 
 [input]
 

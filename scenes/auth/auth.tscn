@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/auth/auth.gd" id="1_schbc"]
 [ext_resource type="Texture2D" uid="uid://d2bri6uf7hwul" path="res://textures/background.png" id="2_8e1b2"]
-[ext_resource type="FontFile" uid="uid://dq8fmfhqv05y3" path="res://fonts/OpenSans-SemiBold.ttf" id="3_ijfdk"]
-[ext_resource type="FontFile" uid="uid://csw6vm62h8413" path="res://fonts/OpenSans-Bold.ttf" id="3_rh62t"]
+[ext_resource type="FontFile" uid="uid://ket82vtivotu" path="res://fonts/Geologica_Auto-SemiBold.ttf" id="3_ijfdk"]
+[ext_resource type="FontFile" uid="uid://tjc32c1qmdhi" path="res://fonts/Geologica_Auto-Bold.ttf" id="3_rh62t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fv8aa"]
 font_size = 48
